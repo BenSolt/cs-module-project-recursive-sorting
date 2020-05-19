@@ -5,6 +5,9 @@ def merge(arrA, arrB):
 
     # Your code here
 
+    for i in range(len(merged_arr)):
+        
+
 
     return merged_arr
 
