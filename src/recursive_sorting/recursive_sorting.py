@@ -18,8 +18,11 @@ def merge(arrA, arrB):
                 arrB.remove(arrB[0])
         else:
             if len(arrA) == 0:
-                
-
+                merged_arr[i] = arrB[0]
+                arrB.remove(arrB[0])
+            else:
+                merged_arr[i] = arrA[0]
+                arrA.remove(arrA[0])    
 
     return merged_arr
 
@@ -28,6 +31,11 @@ def merge(arrA, arrB):
 def merge_sort(arr):
     # Your code here
 
+    if len(arr) > 1:
+        # divide list (array) and assign each half
+            middle = len(arr)//2
+            l, r = merge_sort(arr[:middle]), merge_sort(arr[middle:])
+            arr = merge(l, r)
 
     return arr
 
@@ -35,6 +43,16 @@ def merge_sort(arr):
 # implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
     # Your code here
+    pivot = arr[start]
+
+    a = start + 1
+    b = start + 1
+
+    while b <= end:
+        if arr[b] <= pivot:
+            arr[b], arr[a] = arr[a], arr[b]
+            a += 1
+        b += 1
 
 
     return arr
